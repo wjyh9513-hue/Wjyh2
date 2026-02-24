@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>تطبيق رمضان</title>
+    <title>Ramadan App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        .ramadan-info {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>مرحباً بكم في تطبيق رمضان</h1>
-    </header>
-    <main>
-        <section>
-            <h2>مميزات التطبيق</h2>
-            <ul>
-                <li>معلومات حول رمضان</li>
-                <li>أوقات الصلاة</li>
-                <li>أدعية رمضان</li>
-            </ul>
-        </section>
-        <section>
-            <h2>أوقات الصلاة الخاصة بك</h2>
-            <div id="prayer-times">
-                <!-- Prayer times will be populated here -->
-            </div>
-        </section>
-        <section>
-            <h2>أدعية رمضان</h2>
-            <div id="duas">
-                <!-- Ramadan duas will be shown here -->
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>حقوق الطبع والنشر &copy; 2026 تطبيق رمضان</p>
-    </footer>
-    <script src="script.js"></script>
+
+    <h1>Welcome to the Ramadan App</h1>
+    <div class="ramadan-info">
+        <h2>Current Date and Time (UTC)</h2>
+        <p id="current-date-time"></p>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const utcDateTime = now.toISOString().slice(0, 19).replace('T', ' ');
+            document.getElementById('current-date-time').innerText = utcDateTime;
+        }
+        // Update time every second
+        setInterval(updateDateTime, 1000);
+        // Initialize on load
+        updateDateTime();
+    </script>
+
 </body>
 </html>
